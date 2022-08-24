@@ -12,12 +12,16 @@ import useStyles from "./styles";
 
 const Product = ({ product, onAddToCart }) => {
   const classes = useStyles();
+  
 
   return (
     <Card className={classes.root}>
+      <script>
+        console.log(product);
+      </script>
       <CardMedia
         className={classes.media}
-        image={product.media.source}
+        image={product.image.url}
         title={product.name}
       />
       <CardContent>

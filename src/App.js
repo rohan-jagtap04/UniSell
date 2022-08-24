@@ -13,36 +13,29 @@ const App = () => {
     }
 
     const fetchCart = async () => {
-        setCart(await commerce.cart.retrieve());
+        commerce.cart.retrieve().then(res => setCart(res));
     }
 
     const handleAddToCart = async (productId, quantity) => {
-        const {cart } = await commerce.cart.add(productId, quantity);
-        setCart(cart);
+        const {cart} = commerce.cart.add(productId, quantity).then((res) => setCart(res)).catch((err) => console.log(`Error! ${err}`));
     }
 
     const handleUpdateCartQty = async(productId, quantity) => {
-        const {cart} = await commerce.cart.update(productId, {quantity})
-        setCart(cart);
+        const {cart} = await commerce.cart.update(productId, {quantity}).then(res => setCart(res));
     }
 
     const handleRemoveFromCart = async (productId) => {
-        const {cart} = await commerce.cart.remove(productId);
-
-        setCart(cart);
+        const {cart} = commerce.cart.remove(productId).then(res => setCart(cart));
     }
 
     const handleEmptyCart = async () => {
-        const {cart} = await commerce.cart.empty();
-        setCart(cart);
+        const {cart} = commerce.cart.empty().then(res => setCart(res));
     }
 
     useEffect(() => {
         fetchProducts();
         fetchCart();
     }, [])
-
-    console.log(cart);
     
     return( 
         <Router>

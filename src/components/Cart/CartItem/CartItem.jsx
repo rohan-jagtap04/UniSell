@@ -14,7 +14,7 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
   return (
     <Card>
       <CardMedia
-        image={item.media.source}
+        image={item.image.url}
         alt={item.name}
         className={classes.media}
       />

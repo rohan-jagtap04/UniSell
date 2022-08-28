@@ -21,15 +21,15 @@ const App = () => {
     }
 
     const handleUpdateCartQty = async(productId, quantity) => {
-        const {cart} = await commerce.cart.update(productId, {quantity}).then(res => setCart(res));
+        const {cart} = commerce.cart.update(productId, {quantity}).then(res => setCart(res)).catch((err) => console.log(`Error! ${err}`));
     }
 
     const handleRemoveFromCart = async (productId) => {
-        const {cart} = commerce.cart.remove(productId).then(res => setCart(cart));
+        const {cart} = commerce.cart.remove(productId).then(res => setCart(res)).catch((err) => console.log(`Error! ${err}`));
     }
 
     const handleEmptyCart = async () => {
-        const {cart} = commerce.cart.empty().then(res => setCart(res));
+        const {cart} = commerce.cart.empty().then(res => setCart(res)).catch((err) => console.log(`Error! ${err}`));
     }
 
     useEffect(() => {

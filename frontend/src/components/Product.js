@@ -35,16 +35,18 @@ function Product(props) {
       </Link>
       <Card.Body>
         <Link to={`/product/${product.slug}`}>
-          <Card.Title>{product.name}</Card.Title>
+          <Card.Title style={{color: "#2E5266"}}><b>{product.name}</b></Card.Title>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
         <Card.Text>${product.price}</Card.Text>
         {product.countInStock === 0 ? (
-          <Button variant="light" disabled>
+          <Button style={{backgroundColor: "#E56B6F", color: "#5A6369"}} variant="light" disabled>
+          <b>
             Out of stock
+          </b>
           </Button>
         ) : (
-          <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+          <Button style={{backgroundColor: "#2E5266", color: "#FFFFFF"}} onClick={() => addToCartHandler(product)}><b>Add to cart</b></Button>
         )}
       </Card.Body>
     </Card>

@@ -145,7 +145,7 @@ function ProductScreen() {
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Pirce : ${product.price}</ListGroup.Item>
+            <ListGroup.Item> <b>Price : ${product.price}</b></ListGroup.Item>
             <ListGroup.Item>
               <Row xs={1} md={2} className="g-2">
                 {[product.image, ...product.images].map((x) => (
@@ -196,8 +196,10 @@ function ProductScreen() {
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <div className="d-grid">
-                      <Button onClick={addToCartHandler} variant="primary">
-                        Add to Cart
+                      <Button onClick={addToCartHandler} variant="primary" style={{backgroundColor: "#2E5266", color: "#FFFFFF"}}>
+                      <b>
+                      Add to Cart
+                      </b>
                       </Button>
                     </div>
                   </ListGroup.Item>
@@ -229,13 +231,12 @@ function ProductScreen() {
             <form onSubmit={submitHandler}>
               <h2>Write a customer review</h2>
               <Form.Group className="mb-3" controlId="rating">
-                <Form.Label>Rating</Form.Label>
                 <Form.Select
                   aria-label="Rating"
                   value={rating}
                   onChange={(e) => setRating(e.target.value)}
                 >
-                  <option value="">Select...</option>
+                  <option value="">Select Rating</option>
                   <option value="1">1- Poor</option>
                   <option value="2">2- Fair</option>
                   <option value="3">3- Good</option>
@@ -257,8 +258,10 @@ function ProductScreen() {
               </FloatingLabel>
 
               <div className="mb-3">
-                <Button disabled={loadingCreateReview} type="submit">
-                  Submit
+                <Button style={{backgroundColor: "#2E5266", color: "#ffffff"}} disabled={loadingCreateReview} type="submit">
+                <b>
+                Submit
+                </b>
                 </Button>
                 {loadingCreateReview && <LoadingBox></LoadingBox>}
               </div>

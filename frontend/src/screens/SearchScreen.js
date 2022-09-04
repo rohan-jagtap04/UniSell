@@ -136,11 +136,12 @@ export default function SearchScreen() {
         <Col md={3}>
           <h3>Department</h3>
           <div>
-            <ul>
+            <ul style={{listStyle: 'none'}}>
               <li>
                 <Link
+                  style={{textDecoration: 'none', color: '#2E5266'}}                  
                   className={'all' === category ? 'text-bold' : ''}
-                  to={getFilterUrl({ category: 'all' })}
+                  to={getFilterUrl({ category: 'all' })} 
                 >
                   Any
                 </Link>
@@ -148,6 +149,7 @@ export default function SearchScreen() {
               {categories.map((c) => (
                 <li key={c}>
                   <Link
+                    style={{textDecoration: 'none', color: '#2E5266', fontWeight: 'bold'}}
                     className={c === category ? 'text-bold' : ''}
                     to={getFilterUrl({ category: c })}
                   >
@@ -159,9 +161,10 @@ export default function SearchScreen() {
           </div>
           <div>
             <h3>Price</h3>
-            <ul>
+            <ul style={{listStyle: 'none'}}>
               <li>
                 <Link
+                  style={{textDecoration: 'none', color: '#2E5266'}}
                   className={'all' === price ? 'text-bold' : ''}
                   to={getFilterUrl({ price: 'all' })}
                 >
@@ -171,6 +174,7 @@ export default function SearchScreen() {
               {prices.map((p) => (
                 <li key={p.value}>
                   <Link
+                  style={{textDecoration: 'none', color: '#2E5266', fontWeight: 'bold'}}
                     to={getFilterUrl({ price: p.value })}
                     className={p.value === price ? 'text-bold' : ''}
                   >
@@ -182,10 +186,11 @@ export default function SearchScreen() {
           </div>
           <div>
             <h3>Avg. Customer Review</h3>
-            <ul>
+            <ul style={{listStyle: 'none'}}>
               {ratings.map((r) => (
                 <li key={r.name}>
                   <Link
+                    style={{textDecoration: 'none', color: '#2E5266'}}
                     to={getFilterUrl({ rating: r.rating })}
                     className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
                   >

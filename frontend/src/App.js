@@ -75,15 +75,16 @@ function App() {
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <Navbar bg="dark" variant="dark" expand="lg">
+          <Navbar style={{backgroundColor: "#2E5266"}} variant="dark" expand="lg">
             <Container>
+              <div style={{paddingRight: "10px"}}>
               <Button
-                variant="dark"
+                style={{backgroundColor: "#6E8898", borderColor: "#2E5266"}}
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
                 <i className="fas fa-bars"></i>
               </Button>
-
+              </div>
               <LinkContainer to="/">
                 <Navbar.Brand>UniSell</Navbar.Brand>
               </LinkContainer>
@@ -91,7 +92,7 @@ function App() {
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
                 <Nav className="me-auto  w-100  justify-content-end">
-                  <Link to="/cart" className="nav-link">
+                  <Link to="/cart" style={{color: "#FFFFFF"}} className="nav-link" >
                     Cart
                     {cart.cartItems.length > 0 && (
                       <Badge pill bg="danger">
@@ -100,7 +101,7 @@ function App() {
                     )}
                   </Link>
                   {userInfo ? (
-                    <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                    <NavDropdown style={{color: "#FFFFFF"}} title={userInfo.name} id="basic-nav-dropdown">
                       <LinkContainer to="/profile">
                         <NavDropdown.Item>User Profile</NavDropdown.Item>
                       </LinkContainer>
@@ -266,7 +267,7 @@ function App() {
           </Container>
         </main>
         <footer>
-          <div className="text-center">All rights reserved</div>
+          <div className="text-center">Created by Rohan Jagtap</div>
         </footer>
       </div>
     </BrowserRouter>
